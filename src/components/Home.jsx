@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Home = () => {
@@ -48,7 +49,11 @@ const Home = () => {
               alignItems: "stretch",
             }}
           >
-            <div
+            <Link
+              to={`/product/${product.prodId}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div
               className="card-body"
               style={{
                 flexGrow: 1,
@@ -57,42 +62,43 @@ const Home = () => {
                 justifyContent: "space-between",
                 padding: "10px",
               }}
-            >
-              <div>
-                <h5
-                  className="card-title"
-                  style={{ margin: "0 0 10px 0", fontSize: "1.2rem" }}
-                >
-                  {product.prodName.toUpperCase()}
-                </h5>
-                {/* <i
-                  className="card-brand"
-                  style={{ fontStyle: "italic", fontSize: "0.8rem" }}
-                >
-                  {"by " + product.brand}
-                </i> */}
-              </div>
-              <hr className="hr-line" style={{ margin: "10px 0" }} />
-              <div className="home-cart-price">
-                <h5
-                  className="card-text"
-                  style={{
-                    fontWeight: "600",
-                    fontSize: "1.1rem",
-                    marginBottom: "5px",
-                  }}
-                >
-                  <i className="bi bi-currency-rupee"></i>
-                  {product.price}
-                </h5>
-              </div>
-              <button
-                className="btn-hover color-9"
-                style={{ margin: "10px 25px 0px " }}
               >
-                Add To Cart
-              </button>
-            </div>
+                <div>
+                  <h5
+                    className="card-title"
+                    style={{ margin: "0 0 10px 0", fontSize: "1.2rem" }}
+                  >
+                    {product.prodName.toUpperCase()}
+                  </h5>
+                  {/* <i
+                    className="card-brand"
+                    style={{ fontStyle: "italic", fontSize: "0.8rem" }}
+                  >
+                    {"by " + product.brand}
+                  </i> */}
+                </div>
+                <hr className="hr-line" style={{ margin: "10px 0" }} />
+                <div className="home-cart-price">
+                  <h5
+                    className="card-text"
+                    style={{
+                      fontWeight: "600",
+                      fontSize: "1.1rem",
+                      marginBottom: "5px",
+                    }}
+                  >
+                    <i className="bi bi-currency-rupee"></i>
+                    {product.price}
+                  </h5>
+                </div>
+                <button
+                  className="btn-hover color-9"
+                  style={{ margin: "10px 25px 0px " }}
+                >
+                  Add To Cart
+                </button>
+              </div>
+            </Link>
           </div>
         ))}
       </div>
